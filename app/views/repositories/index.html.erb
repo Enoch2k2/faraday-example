@@ -1,0 +1,9 @@
+<%= form_tag repositories_path, method: 'get' do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<% @repositories.each do |repo| %>
+  <h3><%= link_to repo["name"], repo["html_url"] %></h3>
+  <p>Author: <%= repo["owner"]["login"] %></p>
+<% end %>
